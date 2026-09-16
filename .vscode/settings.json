@@ -1,0 +1,11 @@
+{
+    "makefile.makefilePath": "./",
+    "makefile.makePath": "C:\\TDM-GCC-64\\bin\\mingw32-make.exe",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\vtbol\\Desktop\\Compilador\\builds",
+            "binaryPath": "c:\\Users\\vtbol\\Desktop\\Compilador\\builds\\tinyc.exe",
+            "binaryArgs": []
+        }
+    ]
+}

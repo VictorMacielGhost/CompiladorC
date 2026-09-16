@@ -1,0 +1,28 @@
+Desenvolvimento de um analisador léxico para a linguagem Domus
+Due September 19, 2026 11:59 PM
+•
+Multiple submissions allowed
+•
+Closes September 21, 2026 11:59 PM
+Instructions
+Trabalho para compor a nota A1 da disciplina Compiladores.
+
+
+
+A descrição do trabalho a ser desenvolvido está no arquivo "Trabalho 1 - Compiladores.pdf" em anexo.
+
+
+
+A descrição das convenções léxicas da linguagem Domus está no arquivo "Convencoes lexicas da linguagem Domus.pdf" em anexo.
+
+
+
+Este trabalho vale 40% na nota A1 e será a base para o desenvolvimento dos demais trabalhos.
+
+
+
+Prazo de entrega: até as 23:59 de 19/09/2026.
+
+
+
+Pode ser realizado em grupo de até 6 alunos. 
