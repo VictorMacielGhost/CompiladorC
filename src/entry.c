@@ -13,12 +13,11 @@ int main(int argc, char *argv[])
     Logger logger;
 
     cli_init(argc, argv);
-    cli_enable_debug_mode();
+    // cli_enable_debug_mode();
 
     logger_init(&logger);
 
     lexer_init();
-
 
     logger_close();
     return 0;

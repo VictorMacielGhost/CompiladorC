@@ -1,5 +1,164 @@
-[2026-09-11 15:56:51][INFO]: Tiny Compiler v0.1.0 started! Built at Sep 11 2026 15:56:46
-[2026-09-11 15:56:51][INFO]: Debug mode IS activated.
-[2026-09-11 15:56:51][INFO]: Input file: ../tests/new.tiny
-[2026-09-11 15:56:51][INFO]: Output file: ../tests/build.demus
-[2026-09-11 15:56:51][INFO]: Tiny Compiler v0.1.0 finished!
+[2026-09-18 16:25:23][INFO]: Domus Compiler v0.1.0 started! Built at Sep 18 2026 16:15:00
+[2026-09-18 16:25:23][DEBUG]: Debug mode IS activated.
+[2026-09-18 16:25:23][DEBUG]: Input file: ../tests/new.domus
+[2026-09-18 16:25:23][DEBUG]: Output file: ../tests/build.txt
+[2026-09-18 16:25:23][INFO]: Lexer started
+[2026-09-18 16:25:23][DEBUG]: Starting block comment at line 1
+[2026-09-18 16:25:23][DEBUG]: Finished block comment at line 1
+[2026-09-18 16:25:23][DEBUG]: Found newline at 1, jumping to line 2
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'sensor' classified as SENSOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=SENSOR lexeme=[sensor]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'temperatura' classified as IDENTIFICADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=IDENTIFICADOR lexeme=[temperatura]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=DOIS_PONTOS lexeme=[:]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'analogico' classified as ANALOGICO
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=ANALOGICO lexeme=[analogico]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'porta' classified as PORTA
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=PORTA lexeme=[porta]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=NUMERO lexeme=[1]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=2 type=PONTO lexeme=[.]
+[2026-09-18 16:25:23][DEBUG]: Found newline at 2, jumping to line 3
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'sensor' classified as SENSOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=SENSOR lexeme=[sensor]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'claridade' classified as IDENTIFICADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=IDENTIFICADOR lexeme=[claridade]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=DOIS_PONTOS lexeme=[:]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'digital' classified as DIGITAL
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=DIGITAL lexeme=[digital]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'porta' classified as PORTA
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=PORTA lexeme=[porta]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=NUMERO lexeme=[2]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=3 type=PONTO lexeme=[.]
+[2026-09-18 16:25:23][DEBUG]: Found newline at 3, jumping to line 4
+[2026-09-18 16:25:23][DEBUG]: Starting block comment at line 4
+[2026-09-18 16:25:23][DEBUG]: Finished block comment at line 7
+[2026-09-18 16:25:23][DEBUG]: Found newline at 7, jumping to line 8
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'atuador' classified as ATUADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=ATUADOR lexeme=[atuador]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'cortina' classified as IDENTIFICADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=IDENTIFICADOR lexeme=[cortina]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=DOIS_PONTOS lexeme=[:]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'digital' classified as DIGITAL
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=DIGITAL lexeme=[digital]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'porta' classified as PORTA
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=PORTA lexeme=[porta]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=NUMERO lexeme=[3]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=8 type=PONTO lexeme=[.]
+[2026-09-18 16:25:23][DEBUG]: Found newline at 8, jumping to line 9
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'atuador' classified as ATUADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=ATUADOR lexeme=[atuador]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'ventilador' classified as IDENTIFICADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=IDENTIFICADOR lexeme=[ventilador]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=DOIS_PONTOS lexeme=[:]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'analogico' classified as ANALOGICO
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=ANALOGICO lexeme=[analogico]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'porta' classified as PORTA
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=PORTA lexeme=[porta]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=NUMERO lexeme=[4]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=9 type=PONTO lexeme=[.]
+[2026-09-18 16:25:23][DEBUG]: Found newline at 9, jumping to line 10
+[2026-09-18 16:25:23][DEBUG]: Found newline at 10, jumping to line 11
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'se' classified as SE
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=SE lexeme=[se]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'temperatura' classified as IDENTIFICADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=IDENTIFICADOR lexeme=[temperatura]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=MENOR lexeme=[<]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=NUMERO lexeme=[30]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'entao' classified as ENTAO
+[2026-09-18 16:25:23][INFO]: Lexer token: line=11 type=ENTAO lexeme=[entao]
+[2026-09-18 16:25:23][DEBUG]: Found newline at 11, jumping to line 12
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'cortina' classified as IDENTIFICADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=12 type=IDENTIFICADOR lexeme=[cortina]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=12 type=ATRIB lexeme=[<-]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=12 type=NUMERO lexeme=[1]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=12 type=PONTO lexeme=[.]
+[2026-09-18 16:25:23][DEBUG]: Found newline at 12, jumping to line 13
+[2026-09-18 16:25:23][DEBUG]: Lexeme 'ventiladora' classified as IDENTIFICADOR
+[2026-09-18 16:25:23][INFO]: Lexer token: line=13 type=IDENTIFICADOR lexeme=[ventiladora]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=13 type=ATRIB lexeme=[<-]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=13 type=NUMERO lexeme=[80]
+[2026-09-18 16:25:23][INFO]: Lexer token: line=13 type=PONTO lexeme=[.]
+[2026-09-18 16:25:24][DEBUG]: Found newline at 13, jumping to line 14
+[2026-09-18 16:25:24][DEBUG]: Lexeme 'senao' classified as SENAO
+[2026-09-18 16:25:24][INFO]: Lexer token: line=14 type=SENAO lexeme=[senao]
+[2026-09-18 16:25:24][DEBUG]: Found newline at 14, jumping to line 15
+[2026-09-18 16:25:24][DEBUG]: Lexeme 'cortina' classified as IDENTIFICADOR
+[2026-09-18 16:25:24][INFO]: Lexer token: line=15 type=IDENTIFICADOR lexeme=[cortina]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=15 type=ATRIB lexeme=[<-]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=15 type=NUMERO lexeme=[0]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=15 type=PONTO lexeme=[.]
+[2026-09-18 16:25:24][DEBUG]: Found newline at 15, jumping to line 16
+[2026-09-18 16:25:24][DEBUG]: Lexeme 'ventilador' classified as IDENTIFICADOR
+[2026-09-18 16:25:24][INFO]: Lexer token: line=16 type=IDENTIFICADOR lexeme=[ventilador]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=16 type=ATRIB lexeme=[<-]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=16 type=NUMERO lexeme=[0]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=16 type=PONTO lexeme=[.]
+[2026-09-18 16:25:24][DEBUG]: Found newline at 16, jumping to line 17
+[2026-09-18 16:25:24][DEBUG]: Lexeme 'fim_se' classified as FIM_SE
+[2026-09-18 16:25:24][INFO]: Lexer token: line=17 type=FIM_SE lexeme=[fim_se]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=17 type=PONTO lexeme=[.]
+[2026-09-18 16:25:24][DEBUG]: Found newline at 17, jumping to line 18
+[2026-09-18 16:25:24][DEBUG]: Lexeme 'asd' classified as IDENTIFICADOR
+[2026-09-18 16:25:24][INFO]: Lexer token: line=18 type=IDENTIFICADOR lexeme=[asd]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=18 type=ATRIB lexeme=[<-]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=18 type=NUMERO lexeme=[8]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=18 type=PONTO lexeme=[.]
+[2026-09-18 16:25:24][DEBUG]: Found newline at 18, jumping to line 19
+[2026-09-18 16:25:24][DEBUG]: Lexeme 'asd' classified as IDENTIFICADOR
+[2026-09-18 16:25:24][INFO]: Lexer token: line=19 type=IDENTIFICADOR lexeme=[asd]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=19 type=ATRIB lexeme=[<-]
+[2026-09-18 16:25:24][DEBUG]: Lexeme 'asd' classified as IDENTIFICADOR
+[2026-09-18 16:25:24][INFO]: Lexer token: line=19 type=IDENTIFICADOR lexeme=[asd]
+[2026-09-18 16:25:24][INFO]: Lexer token: line=19 type=SOMA lexeme=[+]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=19 type=NUMERO lexeme=[2]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=19 type=PONTO lexeme=[.]
+[2026-09-18 16:25:25][DEBUG]: Found newline at 19, jumping to line 20
+[2026-09-18 16:25:25][DEBUG]: Lexeme 'escrever' classified as ESCREVER
+[2026-09-18 16:25:25][INFO]: Lexer token: line=20 type=ESCREVER lexeme=[escrever]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=20 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:25][DEBUG]: Lexeme 'asd' classified as IDENTIFICADOR
+[2026-09-18 16:25:25][INFO]: Lexer token: line=20 type=IDENTIFICADOR lexeme=[asd]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=20 type=SOMA lexeme=[+]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=20 type=NUMERO lexeme=[2]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=20 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=20 type=PONTO lexeme=[.]
+[2026-09-18 16:25:25][DEBUG]: Found newline at 20, jumping to line 21
+[2026-09-18 16:25:25][DEBUG]: Lexeme 'enquanto' classified as ENQUANTO
+[2026-09-18 16:25:25][INFO]: Lexer token: line=21 type=ENQUANTO lexeme=[enquanto]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=21 type=ABRE_PAR lexeme=[(]
+[2026-09-18 16:25:25][DEBUG]: Lexeme 'asd' classified as IDENTIFICADOR
+[2026-09-18 16:25:25][INFO]: Lexer token: line=21 type=IDENTIFICADOR lexeme=[asd]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=21 type=MAIOR lexeme=[>]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=21 type=NUMERO lexeme=[1]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=21 type=FECHA_PAR lexeme=[)]
+[2026-09-18 16:25:25][DEBUG]: Found newline at 21, jumping to line 22
+[2026-09-18 16:25:25][DEBUG]: Lexeme 'asd' classified as IDENTIFICADOR
+[2026-09-18 16:25:25][INFO]: Lexer token: line=22 type=IDENTIFICADOR lexeme=[asd]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=22 type=ATRIB lexeme=[<-]
+[2026-09-18 16:25:25][DEBUG]: Lexeme 'asd' classified as IDENTIFICADOR
+[2026-09-18 16:25:25][INFO]: Lexer token: line=22 type=IDENTIFICADOR lexeme=[asd]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=22 type=SUB lexeme=[-]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=22 type=NUMERO lexeme=[1]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=22 type=PONTO lexeme=[.]
+[2026-09-18 16:25:25][DEBUG]: Found newline at 22, jumping to line 23
+[2026-09-18 16:25:25][DEBUG]: Lexeme 'fim_enquanto' classified as FIM_ENQUANTO
+[2026-09-18 16:25:25][INFO]: Lexer token: line=23 type=FIM_ENQUANTO lexeme=[fim_enquanto]
+[2026-09-18 16:25:25][INFO]: Lexer token: line=23 type=PONTO lexeme=[.]
+[2026-09-18 16:25:25][DEBUG]: Found newline at 23, jumping to line 24
+[2026-09-18 16:25:25][INFO]: Lexer token: line=24 type=EOF lexeme=[EOF]
+[2026-09-18 16:25:25][INFO]: Lexer finished
+[2026-09-18 16:25:25][INFO]: Domus Compiler v0.1.0 finished!

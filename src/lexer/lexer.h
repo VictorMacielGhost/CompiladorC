@@ -1,57 +1,61 @@
 #ifndef LEXER_H
 #define LEXER_H
+#include <stdio.h>
 
-typedef struct
+typedef enum 
 {
-    int line;
-    int column;
-    FILE *file;
-    char *input;
-} Lexer;
 
-typedef enum
-{
-    TOKEN_ID,
-    TOKEN_NUMBER,
-    TOKEN_STRING,
-    TOKEN_OPERATOR,
-    TOKEN_KEYWORD,
-    TOKEN_SEMICOLON,
-    TOKEN_COMMA,
-    TOKEN_LPAREN,
-    TOKEN_RPAREN,
-    TOKEN_LBRACE,
-    TOKEN_RBRACE,
-    TOKEN_LBRACKET,
-    TOKEN_RBRACKET,
-    TOKEN_ASSIGN,
-    TOKEN_PLUS,
-    TOKEN_MINUS,
-    TOKEN_STAR,
-    TOKEN_SLASH,
-    TOKEN_PERCENT,
-    TOKEN_EQUAL,
-    TOKEN_NOT_EQUAL,
-    TOKEN_LESS,
-    TOKEN_LESS_EQUAL,
-    TOKEN_GREATER,
-    TOKEN_GREATER_EQUAL,
-    TOKEN_AND,
-    TOKEN_OR,
-    TOKEN_NOT,
-    TOKEN_EOF,
-    TOKEN_UNKNOWN
+    TK_SENSOR,
+    TK_ATUADOR,
+    TK_PORTA,
+    TK_ANALOGICO,
+    TK_DIGITAL,
+    TK_SE,
+    TK_ENTAO,
+    TK_SENAO,
+    TK_FIM_SE,
+    TK_ENQUANTO,
+    TK_FIM_ENQUANTO,
+    TK_LER,
+    TK_ESCREVER,
+
+    TK_SOMA,
+    TK_SUB,
+    TK_MULT,
+    TK_DIV,
+
+    TK_MENOR,
+    TK_MENOR_IGUAL,
+    TK_MAIOR,
+    TK_MAIOR_IGUAL,
+    TK_IGUAL,
+    TK_DIFERENTE,
+
+    TK_ATRIB,
+
+    TK_PONTO,
+    TK_DOIS_PONTOS,
+    TK_VIRGULA,
+    TK_ABRE_PAR,
+    TK_FECHA_PAR,
+
+    TK_NUMERO,
+    TK_IDENTIFICADOR,
+
+    TK_EOF,
+    TK_ERRO
+
 } TokenType;
 
-typedef struct
+typedef struct 
 {
-    TokenType type;
-    char *value;
-    int line;
-    int column;
+    TokenType tipo;
+    char lexema[128];
+    int linha;
 } Token;
 
-void lexer_init(Lexer *lexer);
-void lexer_run(Lexer *lexer);
+Token getToken(FILE *arquivo);
+const char *tokenToString(TokenType tipo);
+void lexer_init();
 
 #endif

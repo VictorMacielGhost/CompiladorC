@@ -4,8 +4,8 @@ static CLI cli;
 
 void cli_init(int argc, char *argv[])
 {
-    cli.input_file = "../tests/new.tiny";
-    cli.output_file = "../tests/build.demus";
+    cli.input_file = "../tests/new.domus";
+    cli.output_file = "../tests/build.txt";
 
     cli_process_args(argc, argv);
     log_msg(LOG_LEVEL_INFO, "Build initiated at %s", getDate());
@@ -18,7 +18,7 @@ void cli_init(int argc, char *argv[])
 
 void cli_print_help()
 {
-    printf("Usage: cook [options]\n");
+    printf("Usage: domusc [options]\n");
     printf("Options:\n");
     printf("  --in <file>     Input file\n");
     printf("  --out <file>    Output file\n");

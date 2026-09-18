@@ -17,7 +17,9 @@ char *getDate(void)
 
 void log_msg(LogLevel level, const char *fmt, ...)
 {
-    if(!cli_is_debug_mode_enabled() || logger->file == NULL)
+    if(!logger || logger->file == NULL)
+        return;
+    if(level == LOG_LEVEL_DEBUG && !logger->debug_mode)
         return;
 
     va_list args;
@@ -26,6 +28,9 @@ void log_msg(LogLevel level, const char *fmt, ...)
     vfprintf(logger->file, fmt, args);
     fprintf(logger->file, "\n");
     fflush(logger->file);
+    printf("[%s][%s]: ", getDate(), log_level_to_string(level));
+    vprintf(fmt, args);
+    printf("\n");
     va_end(args);
 }
 
@@ -44,13 +49,10 @@ void logger_init(Logger *log)
         return;
     }
 
-    if(cli_is_debug_mode_enabled())
-    {
-        log_msg(LOG_LEVEL_INFO, "Tiny Compiler v%s started! Built at %s %s", COMPILER_VERSION, __DATE__, __TIME__);
-        log_msg(LOG_LEVEL_INFO, "Debug mode IS activated.");
-        log_msg(LOG_LEVEL_INFO, "Input file: %s", cli_get_input_file());
-        log_msg(LOG_LEVEL_INFO, "Output file: %s", cli_get_output_file());
-    }
+    log_msg(LOG_LEVEL_INFO, "Domus Compiler v%s started! Built at %s %s", COMPILER_VERSION, __DATE__, __TIME__);
+    log_msg(LOG_LEVEL_DEBUG, "Debug mode IS activated.");
+    log_msg(LOG_LEVEL_DEBUG, "Input file: %s", cli_get_input_file());
+    log_msg(LOG_LEVEL_DEBUG, "Output file: %s", cli_get_output_file());
 
     FILE *input = fopen(cli_get_input_file(), "r");
     if(!input)
@@ -77,7 +79,7 @@ void logger_close()
 {
     if(logger && logger->file)
     {
-        log_msg(LOG_LEVEL_INFO, "Tiny Compiler v%s finished!", COMPILER_VERSION);
+        log_msg(LOG_LEVEL_INFO, "Domus Compiler v%s finished!", COMPILER_VERSION);
         fclose(logger->file);
         logger->file = NULL;
     }
@@ -87,6 +89,8 @@ char *log_level_to_string(LogLevel level)
 {
     switch(level)
     {
+        case LOG_LEVEL_DEBUG:
+            return "DEBUG";
         case LOG_LEVEL_INFO:
             return "INFO";
         case LOG_LEVEL_WARNING:

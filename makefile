@@ -2,7 +2,7 @@ CC = gcc
 
 CFLAGS = -std=c99 -Wall -Wextra -g3 -Isrc
 
-TARGET = builds/tinyc.exe
+TARGET = builds/domusc.exe
 
 SOURCES = $(wildcard src/*.c) \
           $(wildcard src/*/*.c)

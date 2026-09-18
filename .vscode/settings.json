@@ -4,7 +4,7 @@
     "makefile.launchConfigurations": [
         {
             "cwd": "c:\\Users\\vtbol\\Desktop\\Compilador\\builds",
-            "binaryPath": "c:\\Users\\vtbol\\Desktop\\Compilador\\builds\\tinyc.exe",
+            "binaryPath": "c:\\Users\\vtbol\\Desktop\\Compilador\\builds\\domusc.exe",
             "binaryArgs": []
         }
     ]
