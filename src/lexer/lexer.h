@@ -56,6 +56,7 @@ typedef struct
 
 Token getToken(FILE *arquivo);
 const char *tokenToString(TokenType tipo);
+void lexer_reset(void);
 void lexer_init();
 
 #endif

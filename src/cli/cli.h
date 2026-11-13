@@ -8,8 +8,6 @@
 #include <string.h>
 #include <stdarg.h>
 #include <time.h>
-#include <unistd.h>
-#include <getopt.h>
 
 #include "../logger/logger.h"
 

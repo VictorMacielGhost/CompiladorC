@@ -17,6 +17,8 @@ char *getDate(void)
 
 void log_msg(LogLevel level, const char *fmt, ...)
 {
+    va_list console_args;
+
     if(!logger || logger->file == NULL)
         return;
     if(level == LOG_LEVEL_DEBUG && !logger->debug_mode)
@@ -24,13 +26,15 @@ void log_msg(LogLevel level, const char *fmt, ...)
 
     va_list args;
     va_start(args, fmt);
+    va_copy(console_args, args);
     fprintf(logger->file, "[%s][%s]: ", getDate(), log_level_to_string(level));
     vfprintf(logger->file, fmt, args);
     fprintf(logger->file, "\n");
     fflush(logger->file);
     printf("[%s][%s]: ", getDate(), log_level_to_string(level));
-    vprintf(fmt, args);
+    vprintf(fmt, console_args);
     printf("\n");
+    va_end(console_args);
     va_end(args);
 }
 
@@ -54,25 +58,6 @@ void logger_init(Logger *log)
     log_msg(LOG_LEVEL_DEBUG, "Input file: %s", cli_get_input_file());
     log_msg(LOG_LEVEL_DEBUG, "Output file: %s", cli_get_output_file());
 
-    FILE *input = fopen(cli_get_input_file(), "r");
-    if(!input)
-    {
-        fprintf(stderr, "Error opening input file: %s\n", cli_get_input_file());
-        log_msg(LOG_LEVEL_ERROR, "Error opening input file: %s", cli_get_input_file());
-        if(logger->file)
-            fclose(logger->file);
-        return;
-    }
-    FILE *output = fopen(cli_get_output_file(), "w");
-    if(!output)
-    {
-        fprintf(stderr, "Error opening output file: %s\n", cli_get_output_file());
-        log_msg(LOG_LEVEL_ERROR, "Error opening output file: %s", cli_get_output_file());
-        fclose(input);
-        if(logger->file)
-            fclose(logger->file);
-        return;
-    }
 }
 
 void logger_close()

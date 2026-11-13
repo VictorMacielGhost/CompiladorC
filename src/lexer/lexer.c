@@ -15,6 +15,7 @@ void lexer_init()
         return;
     }
 
+    lexer_reset();
     log_msg(LOG_LEVEL_INFO, "Lexer started");
     do
     {
@@ -27,6 +28,11 @@ void lexer_init()
 }
 
 static int linhaAtual = 1;
+
+void lexer_reset(void)
+{
+    linhaAtual = 1;
+}
 
 TokenType palavraReservada(const char *lexema)
 {
@@ -57,10 +63,10 @@ Token criarToken(TokenType tipo, const char *lexema)
     t.tipo = tipo;
     t.linha = linhaAtual;
 
-    strcpy(t.lexema, lexema);
+    snprintf(t.lexema, sizeof(t.lexema), "%s", lexema);
 
     log_msg(
-        LOG_LEVEL_INFO,
+        LOG_LEVEL_DEBUG,
         "Lexer token: line=%d type=%s lexeme=[%s]",
         t.linha,
         tokenToString(t.tipo),
@@ -83,25 +89,36 @@ Token getToken(FILE *arquivo)
             continue;
         }
 
-        if(isspace(c))
+        if(isspace((unsigned char)c))
             continue;
 
-        if(isalpha(c))
+        if(isalpha((unsigned char)c))
         {
             char buffer[128];
             int i = 0;
+            int lexemaLongo = 0;
 
             do
             {
-                buffer[i++] = c;
+                if(i < (int)sizeof(buffer) - 1)
+                    buffer[i++] = (char)c;
+                else
+                    lexemaLongo = 1;
                 c = fgetc(arquivo);
             }
-            while(isalnum(c) || c == '_');
+            while(isalnum((unsigned char)c) || c == '_');
 
             buffer[i] = '\0';
 
             if(c != EOF)
                 ungetc(c, arquivo);
+
+            if(lexemaLongo)
+            {
+                log_msg(LOG_LEVEL_ERROR, "Lexer: identifier exceeds %d characters at line %d",
+                    (int)sizeof(buffer) - 1, linhaAtual);
+                return criarToken(TK_ERRO, "IDENTIFICADOR_MUITO_LONGO");
+            }
 
             return criarToken(
                 palavraReservada(buffer),
@@ -113,18 +130,29 @@ Token getToken(FILE *arquivo)
         {
             char buffer[128];
             int i = 0;
+            int lexemaLongo = 0;
 
             do
             {
-                buffer[i++] = c;
+                if(i < (int)sizeof(buffer) - 1)
+                    buffer[i++] = (char)c;
+                else
+                    lexemaLongo = 1;
                 c = fgetc(arquivo);
             }
-            while(isdigit(c));
+            while(isdigit((unsigned char)c));
 
             buffer[i] = '\0';
 
             if(c != EOF)
                 ungetc(c, arquivo);
+
+            if(lexemaLongo)
+            {
+                log_msg(LOG_LEVEL_ERROR, "Lexer: integer literal exceeds %d characters at line %d",
+                    (int)sizeof(buffer) - 1, linhaAtual);
+                return criarToken(TK_ERRO, "NUMERO_MUITO_LONGO");
+            }
 
             return criarToken(TK_NUMERO, buffer);
         }
@@ -162,8 +190,11 @@ Token getToken(FILE *arquivo)
                 if(prox == '*')
                 {
                     int ant = 0;
+                    int comment_start_line = linhaAtual;
 
-                    log_msg(LOG_LEVEL_DEBUG, "Starting block comment at line %d", linhaAtual);
+                    log_msg(LOG_LEVEL_DEBUG,
+                        "Lexer: starting block comment at line %d",
+                        comment_start_line);
 
                     while((c = fgetc(arquivo)) != EOF)
                     {
@@ -177,11 +208,21 @@ Token getToken(FILE *arquivo)
                     }
 
                     if(c == EOF)
-                        log_msg(LOG_LEVEL_WARNING, "Unterminated block comment at line %d", linhaAtual);
+                    {
+                        Token error = criarToken(TK_ERRO,
+                            "COMENTARIO_NAO_TERMINADO");
+                        error.linha = comment_start_line;
+                        log_msg(LOG_LEVEL_DEBUG,
+                            "Lexer: unterminated block comment started at line %d",
+                            comment_start_line);
+                        return error;
+                    }
                     else
-                        log_msg(LOG_LEVEL_DEBUG, "Finished block comment at line %d", linhaAtual);
+                        log_msg(LOG_LEVEL_DEBUG,
+                            "Lexer: finished block comment at line %d",
+                            linhaAtual);
 
-                    return getToken(arquivo);
+                    continue;
                 }
 
                 if(prox != EOF)
@@ -250,7 +291,8 @@ Token getToken(FILE *arquivo)
         erro[0] = (char)c;
         erro[1] = '\0';
 
-        log_msg(LOG_LEVEL_ERROR, "Invalid character '%s' at line %d", erro, linhaAtual);
+        log_msg(LOG_LEVEL_ERROR,
+            "Lexer: invalid character '%s' at line %d", erro, linhaAtual);
 
         return criarToken(TK_ERRO, erro);
     }

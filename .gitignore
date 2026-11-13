@@ -1,1 +1,6 @@
 desktop.ini
+*.log
+*.o
+*.exe
+*.so
+*.dll

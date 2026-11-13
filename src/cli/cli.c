@@ -5,15 +5,10 @@ static CLI cli;
 void cli_init(int argc, char *argv[])
 {
     cli.input_file = "../tests/new.domus";
-    cli.output_file = "../tests/build.txt";
+    cli.output_file = "../tests/build.c";
+    cli.debug_mode = false;
 
     cli_process_args(argc, argv);
-    log_msg(LOG_LEVEL_INFO, "Build initiated at %s", getDate());
-    log_msg(LOG_LEVEL_INFO, "Build parameters:");
-    for(int i = 0; i < argc; i++)
-    {
-        log_msg(LOG_LEVEL_INFO, "arg %d: %s", i, argv[i]);
-    }
 }
 
 void cli_print_help()
